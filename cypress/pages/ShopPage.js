@@ -23,11 +23,9 @@ export class ShopPage {
   Search(keyword) {
     // first input
     cy.get('input[name="search"]').first().clear().type(keyword);
-
     // button „Search”
     cy.get('button[type="submit"].type-text').click();
     cy.get('.content').should('contain.text', keyword);
-
   }
   visitCategory(path = 20) {
     cy.visit(`/index.php?route=product/category&path=${path}`);
@@ -37,11 +35,11 @@ export class ShopPage {
     cy.get('#input-sort-212403', { timeout: 5000 }).select(optionText);
   }
 
-  verifyProductsLoaded() {
+    verifyProductsLoaded() {
     cy.get('.product-thumb .caption h4', { timeout: 5000 }).should('exist').should('be.visible');
   }
 
-  getAllSortOptions() {
+   getAllSortOptions() {
     return cy.get('#input-sort-212403').find('option');
   }
 
@@ -69,19 +67,19 @@ export class ShopPage {
     cy.contains('Success: You have added', { timeout: 5000 }).should('be.visible');
   }
   addLastProductToCart() {
-    cy.get('.product-thumb',).last().within(() => {
+    cy.get('.product-thumb').last().within(() => {
       cy.contains('Add to Cart').click({ force: true });
     });
   }
   addFirstProductToCart() {
     cy.get('.product-thumb').first().within(() => {
-      cy.contains('Add to Cart').click({ force: true });
+    cy.contains('Add to Cart').click({ force: true });
     });
   }
 
   goToCart() {
     cy.reload();
-    cy.get('.cart-icon').eq(0).click();
+    cy.get('.product-thumb').eq(0).click();
     cy.contains('Edit cart').click({ force: true });
   }
 

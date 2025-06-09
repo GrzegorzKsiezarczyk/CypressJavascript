@@ -5,8 +5,8 @@ export class LoginPage {
   }
 
   fillCredentials(email, password) {
-    cy.get('#input-email').type(email);
-    cy.get('#input-password').type(password);
+  cy.get('[data-cy="input-email"]').type(email);
+  cy.get('[data-cy="input-password"]').type(password);
   }
 
   submit() {
