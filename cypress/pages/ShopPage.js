@@ -1,8 +1,8 @@
-
 export class ShopPage {
   visit() {
     cy.visit('/index.php?route=product/category&path=17'); // Software category
     cy.viewport(1440, 900);
+
 
   }
   randomCategory() {
@@ -27,6 +27,7 @@ export class ShopPage {
     cy.get('button[type="submit"].type-text').click();
     cy.get('.content').should('contain.text', keyword);
   }
+
   visitCategory(path = 20) {
     cy.visit(`/index.php?route=product/category&path=${path}`);
   }
@@ -47,30 +48,37 @@ export class ShopPage {
     cy.scrollTo(0, '50%');
     cy.get('input[name="mz_fss"][value="-1"]').check({ force: true });
   }
+
   selectOutOfStockFilter() {
     cy.scrollTo(0, '50%');
     cy.get('input[name="mz_fss"][value="5"]').check({ force: true });
   }
+
   goToSecondPage() {
     cy.get('ul.pagination')
       .contains('2')
       .scrollIntoView()
       .click({ force: true });
   }
+
   goToProductCartPage() {
     cy.get('.product-thumb',).last().click();
   }
+
   addProductToCompare(){
     cy.get('[data-id="216844"]').click();
   }
+
   checkCompareMessage(){
     cy.contains('Success: You have added', { timeout: 5000 }).should('be.visible');
   }
+
   addLastProductToCart() {
     cy.get('.product-thumb').last().within(() => {
       cy.contains('Add to Cart').click({ force: true });
     });
   }
+  
   addFirstProductToCart() {
     cy.get('.product-thumb').first().within(() => {
     cy.contains('Add to Cart').click({ force: true });

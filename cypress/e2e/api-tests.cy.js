@@ -1,4 +1,5 @@
 describe('Tests API', () => {
+ 
   it('check 200', () => {
     cy.request({
       url: '/',
