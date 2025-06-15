@@ -1,4 +1,3 @@
-
 import { ShopPage } from '../pages/ShopPage';
 
 describe('Shopping path - go to checkout', () => {

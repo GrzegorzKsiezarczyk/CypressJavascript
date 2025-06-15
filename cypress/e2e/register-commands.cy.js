@@ -1,4 +1,3 @@
-
 import { generateUser } from '../factories/userFactory';
 
 describe('Registration process with use command', () => {

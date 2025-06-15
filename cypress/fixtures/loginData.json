@@ -1,11 +1,14 @@
-
 {
   "validUser": {
-    "email": "testcypress@test.com",
+    "email": "good@test.com",
     "password": "testpassword"
   },
   "invalidUser": {
-    "email": "wrong@gmail.com",
+    "email": "bad@gmail.com",
+    "password": "wrongpass"
+  },
+  "invalidData": {
+    "email": "badgmail.com",
     "password": "wrongpass"
   }
 }

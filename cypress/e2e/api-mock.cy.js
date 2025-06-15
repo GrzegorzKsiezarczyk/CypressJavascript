@@ -1,5 +1,6 @@
 describe('Intercept and mocking response HTML', () => {
-  it('mocks a product page with fake HTML', () => {
+  
+    it('mocks a product page with fake HTML', () => {
     cy.intercept('GET', '**/index.php?route=product/product&*', {
       statusCode: 200,
       headers: {
@@ -14,6 +15,7 @@ describe('Intercept and mocking response HTML', () => {
         </html>
       `
     }).as('mockProduct');
+   
     //Visit website but has routed to our HTML
     cy.visit('/index.php?route=product/product&product_id=40');
     cy.wait('@mockProduct');
