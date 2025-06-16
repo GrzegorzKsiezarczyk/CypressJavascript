@@ -1,25 +1,24 @@
-
 export class RegisterPage {
   visit() {
     cy.visit('/index.php?route=account/register');
   }
 
-  fillForm({ firstName, lastName, email,telephone, password }) {
-    cy.get('#input-firstname').type(firstName);
-    cy.get('#input-lastname').type(lastName);
-    cy.get('#input-email').type(email);
-    cy.get('#input-telephone').type(telephone);
-    cy.get('#input-password').type(password);
-    cy.get('#input-confirm').type(password);
-    cy.get('input[name="newsletter"][value="1"]').check({ force: true }); // optional
-    cy.get('input[name="agree"][value="1"]').check({ force: true });
+  fillForm({ firstName, lastName, email, telephone, password }) {
+    cy.get('#input-firstname').clear().type(firstName);
+    cy.get('#input-lastname').clear().type(lastName);
+    cy.get('#input-email').clear().type(email);
+    cy.get('#input-telephone').clear().type(telephone);
+    cy.get('#input-password').clear().type(password);
+    cy.get('#input-confirm').clear().type(password); // confirm = password domyślnie
+    cy.get('[name="agree"]').check({ force: true });
+    cy.get('[name="newsletter"]').check({ force: true });
   }
 
   submit() {
-    cy.get('input[type="submit"]').click();
+    cy.get('input[type="submit"][value="Continue"]').click();
   }
 
   assertSuccess() {
-    cy.contains('Your Account Has Been Created!').should('be.visible');
+    cy.get('h1').should('contain', 'Your Account Has Been Created!');
   }
 }

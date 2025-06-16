@@ -17,3 +17,11 @@ Cypress.Commands.add('login', (email, password) => {
   cy.get('input[name="password"]').type(password);
   cy.get('input[type="submit"]').first().click();
 });
+Cypress.Commands.add('checkBlockedLogin', () => {
+  // Check if body contains the blocked login warning message
+  return cy.get('body').then($body => {
+    // If text found, return true, else false — wrapped in Cypress chainable
+    const blocked = $body.text().includes(' Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.');
+    return cy.wrap(blocked);
+  });
+});

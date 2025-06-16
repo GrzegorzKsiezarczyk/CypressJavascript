@@ -16,4 +16,18 @@ export class LoginPage {
   assertLoggedIn() {
     cy.contains('a.list-group-item', 'Logout').should('be.visible');
   }
+  LogOut(){
+    cy.contains('a.list-group-item', 'Logout').should('be.visible').click()
+  }
+  forgottenpasswordlink(){
+    cy.contains('Forgotten Password').should('be.visible').click()
+  }
+  fillemail(email){
+    cy.get('#input-email').type(email);
+  }
+  continue(){
+    cy.contains('Continue').should('be.visible').click()
+
+  }
+
 }
