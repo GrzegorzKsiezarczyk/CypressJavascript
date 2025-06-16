@@ -36,11 +36,11 @@ export class ShopPage {
     cy.get('#input-sort-212403', { timeout: 5000 }).select(optionText);
   }
 
-    verifyProductsLoaded() {
+  verifyProductsLoaded() {
     cy.get('.product-thumb .caption h4', { timeout: 5000 }).should('exist').should('be.visible');
   }
 
-   getAllSortOptions() {
+  getAllSortOptions() {
     return cy.get('#input-sort-212403').find('option');
   }
 
@@ -66,7 +66,7 @@ export class ShopPage {
   }
 
   addProductToCompare(){
-    cy.get('[data-id="216844"]').click();
+    cy.get('[data-id="216844"]').click({ force: true });
   }
 
   checkCompareMessage(){
