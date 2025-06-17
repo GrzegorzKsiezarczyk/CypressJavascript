@@ -1,10 +1,9 @@
-import { ShopPage } from '../pages/ShopPage';
+import { ShopPage } from "../pages/ShopPage";
 
-describe('Navigate to a randomly selected category', () => {
+describe("Navigate to a randomly selected category", () => {
   const shop = new ShopPage();
 
-  it('should open random selected category', () => {
+  it("should open random selected category", () => {
     shop.randomCategory();
-    });
   });
-
+});

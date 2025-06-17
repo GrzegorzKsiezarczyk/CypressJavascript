@@ -1,5 +1,5 @@
-Cypress.Commands.add('register', (user) => {
-  cy.visit('/index.php?route=account/register');
+Cypress.Commands.add("register", (user) => {
+  cy.visit("/index.php?route=account/register");
   cy.get('input[name="firstname"]').type(user.firstName);
   cy.get('input[name="lastname"]').type(user.lastName);
   cy.get('input[name="email"]').type(user.email);
@@ -11,17 +11,21 @@ Cypress.Commands.add('register', (user) => {
   cy.get('input[type="submit"]').click();
 });
 
-Cypress.Commands.add('login', (email, password) => {
-  cy.visit('/index.php?route=account/login');
+Cypress.Commands.add("login", (email, password) => {
+  cy.visit("/index.php?route=account/login");
   cy.get('input[name="email"]').type(email);
   cy.get('input[name="password"]').type(password);
   cy.get('input[type="submit"]').first().click();
 });
-Cypress.Commands.add('checkBlockedLogin', () => {
+Cypress.Commands.add("checkBlockedLogin", () => {
   // Check if body contains the blocked login warning message
-  return cy.get('body').then($body => {
+  return cy.get("body").then(($body) => {
     // If text found, return true, else false — wrapped in Cypress chainable
-    const blocked = $body.text().includes(' Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.');
+    const blocked = $body
+      .text()
+      .includes(
+        " Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."
+      );
     return cy.wrap(blocked);
   });
 });
