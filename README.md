@@ -1,17 +1,18 @@
-This is end-to-end testing project using **Cypress** and **JavaScript**.  
+This is end-to-end testing project using **Cypress** and **JavaScript**.
 
 🔗 https://ecommerce-playground.lambdatest.io
+🔗 https://dummyjson.com
 
 ## What This Project Covers
 
 ✅ UI Testing with Cypress  
 ✅ Page Object Model (POM)  
-✅ API Testing with `cy.request()`  
+✅ API Testing with `cy.request()` REST  
 ✅ API Mocking with `cy.intercept()`  
 ✅ Factory Pattern with Faker.js  
 ✅ Command Pattern with custom `cy.commands()`  
 ✅ Mobile responsiveness (viewport testing)  
-✅ Negative scenarios  
+✅ Negative scenarios
 
 ## Project Structure
 
@@ -27,12 +28,12 @@ cypress/
 ```
 
 Tools & Tech:
+
 - Cypress 14+
 - JavaScript (ES6+)
 - Faker.js (`@faker-js/faker`)
 - Mochawesome (reporting)
 - GitHub Actions (CI-ready)
-
 
 Install dependencies:
 npm install
@@ -41,10 +42,10 @@ Run:
 npx cypress open
 npx cypress run
 
-
-##  Scripts
+## Scripts
 
 > Add these to your `package.json` for convenience:
+
 ```json
 "scripts": {
   "test": "cypress run",
@@ -52,4 +53,3 @@ npx cypress run
   "report": "mochawesome-merge cypress/reports/*.json | marge -o mochawesome-report"
 }
 ```
-
